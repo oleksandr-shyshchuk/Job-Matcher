@@ -6,6 +6,27 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 def parsing_djinni(url, driver):
+    """
+        Function to scrape job listings from Djinni.co for data science related positions.
+
+        Args:
+            url (str): The URL of the Djinni.co page with the job listings.
+            driver (webdriver): The Selenium WebDriver instance.
+
+        Returns:
+            DataFrame: Pandas DataFrame containing the scraped job data.
+
+                Columns:
+                    - 'Position': Job position/title.
+                    - 'Company': Name of the hiring company.
+                    - 'Salary': Salary information (if available).
+                    - 'Attributes': Additional job attributes.
+                    - 'Description': Job description.
+                    - 'Views': Number of views.
+                    - 'Reviews': Number of reviews.
+                    - 'Time': Time since job posting.
+                    - 'URL': URL to the job listing.
+    """
     driver.get(url)
 
     if (driver.current_url != url) and (driver.current_url != url[:-7]):

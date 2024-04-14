@@ -15,6 +15,7 @@ void main() {
   runApp(MyApp());
 }
 
+/// MyApp is the root widget of the application, it sets up the MaterialApp.
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
 
 final TextEditingController _searchController = TextEditingController();
 
+/// HomePage displays the main interface of the application.
 class HomePage extends StatelessWidget {
 
   final List<Map<String, dynamic>> options = [
@@ -99,6 +101,8 @@ class HomePage extends StatelessWidget {
   }
 }
 
+
+/// OptionPage displays the list of vacancies based on the selected option.
 class OptionPage extends StatefulWidget {
   final String title;
   final String data;
@@ -167,6 +171,7 @@ class _OptionPageState extends State<OptionPage> {
 }
 
 
+/// PDFDownloader allows users to pick a PDF file and send it to an API for analysis.
 class PDFDownloader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

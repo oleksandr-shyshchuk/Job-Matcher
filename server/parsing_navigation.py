@@ -11,11 +11,33 @@ import pandas as pd
 
 
 def remove_punctuation(text):
+    """
+        Function to remove punctuation characters from a text.
+
+        Args:
+            text (str): The input text.
+
+        Returns:
+            str: Text with punctuation removed.
+    """
+
     translator = str.maketrans('', '', string.punctuation)
     return text.translate(translator)
 
 
 def forming_link(request, source, page=1):
+    """
+        Function to form a URL based on the search request and source website.
+
+        Args:
+            request (str): The search request.
+            source (str): The source website ('work.ua', 'robota.ua', 'dou', 'djinni').
+            page (int): The page number (default is 1).
+
+        Returns:
+            str: Formed URL.
+    """
+
     request = remove_punctuation(request)
 
     if source == 'work.ua':
@@ -40,6 +62,18 @@ def forming_link(request, source, page=1):
 
 
 def get_table_by_request(request, source, driver):
+    """
+        Function to retrieve job listings table based on the search request and source website.
+
+        Args:
+            request (str): The search request.
+            source (str): The source website ('work.ua', 'robota.ua', 'dou', 'djinni').
+            driver (webdriver): The Selenium WebDriver instance.
+
+        Returns:
+            DataFrame: Pandas DataFrame containing the scraped job data.
+    """
+
     if source == 'work.ua':
         table = 1
         i = 1

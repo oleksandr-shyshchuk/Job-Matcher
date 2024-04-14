@@ -5,11 +5,18 @@ import 'dart:io';
 import 'package:url_launcher/url_launcher.dart';
 import 'work_ua.dart';
 
+
+/// A widget to display a single vacancy item from Djinni website.
 class VacancyDjinniItem extends StatelessWidget {
   final String data;
 
   VacancyDjinniItem({required this.data});
-
+  
+  
+  /// Constructs a VacancyDjinniItem widget.
+  ///
+  /// The [data] parameter is required and should contain the CSV data
+  /// representing the attributes of the vacancy.
   @override
   Widget build(BuildContext context) {
     final List<dynamic> attributes = parseCsvString(data);

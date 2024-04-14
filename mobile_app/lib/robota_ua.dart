@@ -6,12 +6,16 @@ import 'package:url_launcher/url_launcher.dart';
 import 'work_ua.dart';
 
 
+/// A widget to display a single vacancy item from Robota.ua website.
 class VacancyRobotaUAItem extends StatelessWidget {
   final String data;
 
   VacancyRobotaUAItem({required this.data});
 
-  // final List<dynamic> attributes = parseCsvString(data);
+  /// Constructs a VacancyRobotaUAItem widget.
+  ///
+  /// The [data] parameter is required and should contain the CSV data
+  /// representing the attributes of the vacancy.
   @override
   Widget build(BuildContext context) {
 

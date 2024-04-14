@@ -4,6 +4,7 @@ import 'package:csv/csv.dart';
 import 'dart:io';
 import 'package:url_launcher/url_launcher.dart';
 
+/// Parses CSV string into a list of dynamic values.
 List<dynamic> parseCsvString(String csvString) {
   var converter = CsvToListConverter();
 
@@ -14,16 +15,21 @@ List<dynamic> parseCsvString(String csvString) {
   return result;
 }
 
+/// Joins a list of dynamic elements into a single string separated by newlines.
 String joinElements(List<dynamic> elements) {
   return elements.map((e) => e.toString()).join('\n');
 }
 
+/// A widget to display a single vacancy item from Work.ua website.
 class VacancyWorkUAItem extends StatelessWidget {
-  final String data;
+  final String data;v
 
   VacancyWorkUAItem({required this.data});
 
-  // final List<dynamic> attributes = parseCsvString(data);
+  /// Constructs a VacancyWorkUAItem widget.
+  ///
+  /// The [data] parameter is required and should contain the CSV data
+  /// representing the attributes of the vacancy.
   @override
   Widget build(BuildContext context) {
     

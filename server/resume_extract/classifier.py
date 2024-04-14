@@ -4,6 +4,16 @@ import joblib
 
 
 def cleanResume(resumeText):
+    """
+        Function to clean the resume text by removing URLs, mentions, hashtags, special characters, and extra whitespaces.
+
+        Args:
+            resumeText (str): The raw text extracted from the resume.
+
+        Returns:
+            str: Cleaned resume text.
+    """
+
     resumeText = re.sub('http\S+\s*', ' ', resumeText)  # remove URLs
     resumeText = re.sub('RT|cc', ' ', resumeText)  # remove RT and cc
     resumeText = re.sub('#\S+', '', resumeText)  # remove hashtags
@@ -15,6 +25,16 @@ def cleanResume(resumeText):
 
 
 def classify_resume(file):
+    """
+        Function to classify the type of job based on the resume.
+
+        Args:
+            file (file): The PDF file containing the resume.
+
+        Returns:
+            str: The predicted job category.
+    """
+
     text = ''
 
     pdf_reader = PyPDF2.PdfReader(file)

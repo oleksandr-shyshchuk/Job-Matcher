@@ -9,7 +9,12 @@ class VacancyDOUItem extends StatelessWidget {
   final String data;
 
   VacancyDOUItem({required this.data});
-
+  
+  
+  /// Constructs a VacancyDOUItem widget.
+  ///
+  /// The [data] parameter is required and should contain the CSV data
+  /// representing the attributes of the vacancy.
   @override
   Widget build(BuildContext context) {
     final List<dynamic> attributes = parseCsvString(data);

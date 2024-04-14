@@ -7,6 +7,26 @@ import time
 
 
 def parsing_robota_ua(url, driver):
+    """
+        Function to scrape job listings from robota.ua for data science related positions.
+
+        Args:
+            url (str): The URL of the robota.ua page with the job listings.
+            driver (webdriver): The Selenium WebDriver instance.
+
+        Returns:
+            DataFrame: Pandas DataFrame containing the scraped job data.
+
+                Columns:
+                    - 'Position': Job position/title.
+                    - 'Company': Name of the hiring company.
+                    - 'Salary': Salary information (if available).
+                    - 'Location': Job location.
+                    - 'Benefits': Job benefits.
+                    - 'Labels': Job labels/status.
+                    - 'Time': Time since job posting.
+                    - 'URL': URL to the job listing.
+    """
     result = pd.DataFrame(columns=['Position', 'Company', 'Salary', 'Location', 'Benefits', 'Labels', 'Time', 'URL'])
 
     driver.get(url)

@@ -7,6 +7,25 @@ import time
 
 
 def parsing_dou(url, driver):
+    """
+        Function to scrape job listings from jobs.dou.ua for Python-related positions.
+
+        Args:
+            url (str): The URL of the jobs.dou.ua page with the job listings.
+            driver (webdriver): The Selenium WebDriver instance.
+
+        Returns:
+            DataFrame: Pandas DataFrame containing the scraped job data.
+
+                Columns:
+                    - 'Position': Job position/title.
+                    - 'Company': Name of the hiring company.
+                    - 'Salary': Salary information (if available).
+                    - 'Location': Job location.
+                    - 'Description': Job description.
+                    - 'URL': URL to the job listing.
+    """
+
     driver.get(url)
 
     element = WebDriverWait(driver, 10).until(

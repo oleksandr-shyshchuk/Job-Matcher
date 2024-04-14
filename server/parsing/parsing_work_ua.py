@@ -4,6 +4,26 @@ import pandas as pd
 
 
 def parsing_work_ua(url):
+    """
+        Function to scrape job listings from work.ua.
+
+        Args:
+            url (str): The URL of the work.ua page with the job listings.
+
+        Returns:
+            DataFrame or str: Pandas DataFrame containing the scraped job data if jobs are found,
+                              otherwise returns 'Немає' indicating no jobs found.
+
+                Columns:
+                    - 'Position': Job position/title.
+                    - 'Company': Name of the hiring company.
+                    - 'Salary': Salary information (if available).
+                    - 'Location': Job location.
+                    - 'Description': Job description.
+                    - 'Time': Time since job posting.
+                    - 'URL': URL to the job listing.
+    """
+
     response = requests.get(url)
     html_content = response.content
 

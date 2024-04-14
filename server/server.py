@@ -11,6 +11,17 @@ app = FastAPI()
 # https://127.0.0.1:8000/get_vacancies/?request=frontend&source=djinni
 @app.get("/get_vacancies/")
 async def process_string(request: str = Query(...), source: str = Query(...)):
+    """
+        Endpoint to retrieve job vacancies based on the search request and source website.
+
+        Args:
+            request (str): The search request.
+            source (str): The source website ('work.ua', 'robota.ua', 'dou', 'djinni').
+
+        Returns:
+            Response: Response object containing the CSV data of job vacancies.
+    """
+
     if source != 'work.ua':
         options = webdriver.FirefoxOptions()
         options.add_argument("--headless")
@@ -25,6 +36,16 @@ async def process_string(request: str = Query(...), source: str = Query(...)):
 
 @app.post("/analyze_resume/")
 async def analyze_resume(file: UploadFile = File(...)):
+    """
+        Endpoint to analyze the job category based on the uploaded resume file.
+
+        Args:
+            file (UploadFile): The uploaded resume file.
+
+        Returns:
+            dict: Dictionary containing the predicted job category.
+    """
+
     with tempfile.NamedTemporaryFile(delete=False) as temp_file:
         temp_file.write(await file.read())
 
